@@ -53,9 +53,6 @@ class DemoProjectApplicationTests {
 	@PersistenceContext //JPA ±M¦³ªºª`ÄÀ
     private EntityManager entityManager;
 	
-	@Value("${email.account}")
-	private String emailAccount;
-	
 	@Value("${email.password}")
 	private String emailPwd;
 	
@@ -64,7 +61,6 @@ class DemoProjectApplicationTests {
 	
 	@Test
 	public void test() {
-		System.out.println(emailAccount);
 		System.out.println(emailPwd);
 		System.out.println(emailPwddd);
 	}
