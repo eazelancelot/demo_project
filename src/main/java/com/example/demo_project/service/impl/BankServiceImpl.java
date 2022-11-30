@@ -5,7 +5,6 @@ package com.example.demo_project.service.impl;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.example.demo_project.entity.Bank;
@@ -14,15 +13,6 @@ import com.example.demo_project.service.ifs.BankService;
 
 @Service
 public class BankServiceImpl implements BankService {
-	
-	@Value("${email.account}")
-	private String emailAccount;
-	
-	@Value("${email.password}")
-	private String emailPwd;
-	
-	@Value("${email.passworddd:ASDF}")
-	private String emailPwddd;
 	
 	@Autowired
 	private BankDao bankDao;
