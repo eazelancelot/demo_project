@@ -15,6 +15,12 @@ import com.example.demo_project.service.ifs.BankService;
 @Service
 public class BankServiceImpl implements BankService {
 	
+	@Value("${email.account}")
+	private String emailAccount;
+	
+	@Value("${email.password}")
+	private String emailPwd;
+	
 	@Value("${email.passworddd:ASDF}")
 	private String emailPwddd;
 	
