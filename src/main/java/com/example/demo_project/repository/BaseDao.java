@@ -119,7 +119,21 @@ public class BaseDao {
     }
 	
 	/*
-	 * exexute update
+	 * execute update
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+    protected int doUpdate(String sql, Map<String, Object> params) {
+        Query query = entityManager.createQuery(sql);
+        if (!CollectionUtils.isEmpty(params)) {
+            for(Parameter p : query.getParameters()) {
+                query.setParameter(p, params.get(p.getName()));
+            }
+        }
+        return query.executeUpdate();
+    }
+	
+	/*
+	 * execute native update
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
     protected int doNativeUpdate(String nativeSql, Map<String, Object> params) {

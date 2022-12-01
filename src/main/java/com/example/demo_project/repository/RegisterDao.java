@@ -39,7 +39,13 @@ public interface RegisterDao extends JpaRepository<Register, String> {
 	public int updateAgeByName(String name, int age);
 	
 	@Transactional
+	public int nativeUpdateAgeByName(String name, int age);
+	
+	@Transactional
 	public int updateAgeByAccount(String account, int age);
+	
+	@Transactional
+	public int nativeUpdateAgeByAccount(String account, int age);
 	
 	public List<Register> doQueryRoleContains(List<String> roleList);
 

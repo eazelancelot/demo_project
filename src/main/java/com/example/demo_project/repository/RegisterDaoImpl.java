@@ -54,17 +54,39 @@ public class RegisterDaoImpl extends BaseDao {
         return doNativeQuery(sb.toString(), params, Register.class, pageSize, startPosition);
 	}
 	
+	//================= update
 	public int updateAgeByName(String name, int newAge) {
+        StringBuffer sb = new StringBuffer();
+        sb.append(" update Register set age = :age");
+        sb.append(" where name = :newName");
+        Map<String, Object> params = new HashMap<>();
+        params.put("age", newAge);
+        params.put("newName", name);
+        return doUpdate(sb.toString(), params);
+	}
+	
+	public int updateAgeByAccount(String account, int newAge) {
+        StringBuffer sb = new StringBuffer();
+        sb.append(" update Register set age = :age");
+        sb.append(" where account = :account");
+        Map<String, Object> params = new HashMap<>();
+        params.put("age", newAge);
+        params.put("account", account);
+        return doUpdate(sb.toString(), params);
+	}
+	
+	//================= native update
+	public int nativeUpdateAgeByName(String name, int newAge) {
         StringBuffer sb = new StringBuffer();
         sb.append(" update register set age = :age");
         sb.append(" where name = :newName");
         Map<String, Object> params = new HashMap<>();
         params.put("age", newAge);
-        params.put("name", name);
+        params.put("newName", name);
         return doNativeUpdate(sb.toString(), params);
 	}
 	
-	public int updateAgeByAccount(String account, int newAge) {
+	public int nativeUpdateAgeByAccount(String account, int newAge) {
         StringBuffer sb = new StringBuffer();
         sb.append(" update register set age = :age");
         sb.append(" where account = :account");

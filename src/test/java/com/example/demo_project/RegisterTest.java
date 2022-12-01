@@ -242,5 +242,19 @@ public class RegisterTest {
 			System.out.println(item.getAccount());
 		}
 	}
+	
+	@Test
+	public void doUpdateTest() throws ParseException {
+		int result = registerDao.updateAgeByName("Alice", 66);
+//		int result = registerDao.updateAgeByAccount("A01", 77);
+		System.out.println(result);
+	}
+	
+	@Test
+	public void doNativeUpdateTest() throws ParseException {
+		int result = registerDao.nativeUpdateAgeByName("Alice", 33);
+//		int result = registerDao.nativeUpdateAgeByAccount("A01", 88);
+		System.out.println(result);
+	}
 
 }
